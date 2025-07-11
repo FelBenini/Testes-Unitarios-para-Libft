@@ -70,6 +70,46 @@ void test_tolower()
 	TEST_ASSERT_EQUAL(tolower('p'), ft_tolower('p'));
 }
 
+void test_toupper()
+{
+	TEST_ASSERT_EQUAL(toupper('C'), ft_toupper('C'));
+	TEST_ASSERT_EQUAL(toupper('b'), ft_toupper('b'));
+	TEST_ASSERT_EQUAL(toupper('O'), ft_toupper('O'));
+	TEST_ASSERT_EQUAL(toupper('p'), ft_toupper('p'));
+}
+
+void test_isprint()
+{
+	TEST_ASSERT_TRUE(ft_isprint('C'));
+	TEST_ASSERT_TRUE(ft_isprint('1'));
+	TEST_ASSERT_FALSE(ft_isprint('\n'));
+	TEST_ASSERT_TRUE(ft_isprint('+'));
+}
+
+void test_isalnum()
+{
+	TEST_ASSERT_TRUE(ft_isalnum('C'));
+	TEST_ASSERT_TRUE(ft_isalnum('1'));
+	TEST_ASSERT_FALSE(ft_isalnum('\n'));
+	TEST_ASSERT_FALSE(ft_isalnum('+'));
+}
+
+void test_isalpha()
+{
+	TEST_ASSERT_TRUE(ft_isalpha('C'));
+	TEST_ASSERT_FALSE(ft_isalpha('1'));
+	TEST_ASSERT_FALSE(ft_isalpha('\n'));
+	TEST_ASSERT_FALSE(ft_isalpha('+'));
+}
+
+void test_isdigit()
+{
+	TEST_ASSERT_FALSE(ft_isdigit('C'));
+	TEST_ASSERT_TRUE(ft_isdigit('1'));
+	TEST_ASSERT_FALSE(ft_isdigit('\n'));
+	TEST_ASSERT_FALSE(ft_isdigit('+'));
+}
+
 int	main(void)
 {
 	UNITY_BEGIN();
@@ -79,6 +119,11 @@ int	main(void)
 	RUN_TEST(test_memset);
 	RUN_TEST(test_bzero);
 	RUN_TEST(test_tolower);
+	RUN_TEST(test_toupper);
+	RUN_TEST(test_isprint);
+	RUN_TEST(test_isalnum);
+	RUN_TEST(test_isalpha);
+	RUN_TEST(test_isdigit);
 	UNITY_END();
 
 	return (0);

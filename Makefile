@@ -54,15 +54,14 @@ NC=\033[0m # No Color
 test: $(BUILD_DIR) $(TEST_EXEC)
 		@./$(TEST_EXEC) > $(BUILD_DIR)/test_results.txt 2>&1
 	@echo "$(BLUE)-----------------------$(NC)"
-	@echo "$(YELLOW)$(RESULTS)$(NC)"
+	@echo "$(GREEN)PASSED:$(NC)"
+	@echo "$(GREEN)$(PASSED)$(NC)"
 	@echo "$(BLUE)-----------------------$(NC)"
 	@echo "$(RED)FAILURES:$(NC)"
 	@echo "$(RED)$(FAIL)$(NC)"
 	@echo "$(BLUE)-----------------------$(NC)"
-	@echo "$(GREEN)PASSED:$(NC)"
-	@echo "$(GREEN)$(PASSED)$(NC)"
+	@echo "$(YELLOW)$(RESULTS)$(NC)"
 	@echo "$(BLUE)-----------------------$(NC)"
-
 
 # Clean build artifacts
 clean:
