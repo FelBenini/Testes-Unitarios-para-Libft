@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/10 19:38:22 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/11 11:53:00 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	test_strdup()
 void	test_atoi()
 {
 	TEST_ASSERT_EQUAL(atoi("-4234"), ft_atoi("-4234"));
-	TEST_ASSERT_EQUAL(-3215, ft_atoi("   -+--3215"));
+	TEST_ASSERT_EQUAL(atoi("   -3215"), ft_atoi("   -3215"));
 	TEST_ASSERT_EQUAL(atoi("4525634"), ft_atoi("4525634"));
 	TEST_ASSERT_EQUAL(atoi("42ad34"), ft_atoi("42ad34"));
 }
@@ -86,10 +86,14 @@ void test_tolower()
 
 void test_toupper()
 {
-	TEST_ASSERT_EQUAL(toupper('C'), ft_toupper('C'));
-	TEST_ASSERT_EQUAL(toupper('b'), ft_toupper('b'));
-	TEST_ASSERT_EQUAL(toupper('O'), ft_toupper('O'));
-	TEST_ASSERT_EQUAL(toupper('p'), ft_toupper('p'));
+	char *src = "bOcgfs2mMnf\tasdghdMzx´to3Pcx0\nzm";
+	int i = 0;
+
+	while (src[i])
+	{
+		TEST_ASSERT_EQUAL(toupper(src[i]), ft_toupper(src[i]));
+		i++;
+	}
 }
 
 void test_isprint()
