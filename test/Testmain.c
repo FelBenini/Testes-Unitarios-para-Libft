@@ -58,8 +58,13 @@ void	test_strncmp()
 	char src1[] = "BANANA";
 	char src2[] = "BANANA";
 	char src3[] = "BANUNU";
+	char src4[] = "BAN";
+	char src5[] = "BANN";
 	TEST_ASSERT_EQUAL(strncmp(src1, src2, 5), ft_strncmp(src1, src2, 5));
 	TEST_ASSERT_EQUAL(strncmp(src1, src3, 5), ft_strncmp(src1, src3, 5));
+
+	TEST_ASSERT_EQUAL(strncmp(src4, src5, 5), ft_strncmp(src4, src5, 5));
+	TEST_ASSERT_EQUAL(strncmp(src4, src5, 4), ft_strncmp(src4, src5, 4));
 }
 
 void	test_bzero()
