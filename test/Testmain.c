@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/11 14:27:46 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:38:26 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,14 @@ void test_isascii()
 	TEST_ASSERT_TRUE(ft_isascii('1'));
 	TEST_ASSERT_FALSE(ft_isascii(0x80));
 	TEST_ASSERT_TRUE(ft_isascii('+'));
+}
+
+void test_memmove()
+{
+	char *str, *str2 = "LEARNINGISFUN";
+	char *src = str;
+	char *src2 = str2;
+	TEST_ASSERT_EQUAL(memmove(str + 8, src, 10), ft_memmove(str2 + 8, src2, 10));
 }
 
 int	main(void)
