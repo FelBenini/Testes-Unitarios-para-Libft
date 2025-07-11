@@ -69,6 +69,14 @@ void	test_memset()
 	TEST_ASSERT_EQUAL_MEMORY(memset(src1, 'A', sizeof(src1)), ft_memset(src2, 'A', sizeof(src2)), sizeof(src2));
 }
 
+void	test_memcpy()
+{
+	const char src[50] = "Tutorialspoint";
+	char dest[50] = "Heloooo!!";
+	TEST_ASSERT_EQUAL_MEMORY(memcpy(dest, src, strlen(src) + 1), ft_memcpy(dest, src, strlen(src) + 1), sizeof(dest));
+	TEST_ASSERT_EQUAL_MEMORY(memcpy(dest, src, 3), ft_memcpy(dest, src, 3), sizeof(dest));
+}
+
 void	test_strncmp()
 {
 	char src1[] = "BANANA";
