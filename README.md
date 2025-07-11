@@ -8,10 +8,10 @@ Esse é um repositório de testes unitários para facilitar a vida de quem está
 ```bash
 https://github.com/FelBenini/libft_with_unit_tests.git libft_tests
 ```
-- **Crie a pasta src na raiz do repositório:**
+- **Copie a pasta da sua libft para a pasta src na raiz do repositório:**
 ```bash
 cd ./libft_tests
-mv /caminho/para/sua/libft ./src
+cp /caminho/para/sua/libft ./src
 ```
 - **Rode os testes com o Makefile:**
 ```bash
