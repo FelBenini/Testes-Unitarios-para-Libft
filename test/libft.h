@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <stdio.h>
 
 int		ft_strlen(char *str);
 char	*ft_strdup(char *str);
