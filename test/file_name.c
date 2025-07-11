@@ -63,7 +63,7 @@ int	main(void)
 	fcount = 0;
 	success = 1;
 	printf("-------------------------------------------------------\n");
-	while (i < 33)
+	while (i < 34)
 	{
 		fd = open(files[i], O_RDONLY);
 		if (fd == -1)
