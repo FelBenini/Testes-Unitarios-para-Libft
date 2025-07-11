@@ -71,13 +71,15 @@ void	test_memset()
 
 void	test_memcpy()
 {
-	const char src[50], src2[50] = "Tutorialspoint";
-	const char src1[50], src3[50] = "";
-	char dest[50], dest2[50] = "Heloooo!!";
-	char dest1[50], dest3[50] = "";
-	TEST_ASSERT_EQUAL_MEMORY(memcpy(dest, src, strlen(src) + 1), ft_memcpy(dest2, src2, strlen(src) + 1), sizeof(dest));
-	TEST_ASSERT_EQUAL_MEMORY(memcpy(dest, src, 3), ft_memcpy(dest2, src2, 3), sizeof(dest));
-	TEST_ASSERT_EQUAL_MEMORY(memcpy(dest1, src1, 1), ft_memcpy(dest3, src3, 1), sizeof(dest));
+	const char src1[50], src2[50] = "Tutorialspoint";
+	const char src3[50], src4[50] = "";
+	const char src5[50], src6[50] = "kloi";
+	char dest1[50], dest2[50] = "Heloooo!!";
+	char dest3[50], dest4[50] = "";
+	char dest5[50], dest6[50] = "al";
+	TEST_ASSERT_EQUAL_MEMORY(memcpy(dest1, src1, strlen(src1) + 1), ft_memcpy(dest2, src2, strlen(src2) + 1), sizeof(dest2));
+	TEST_ASSERT_EQUAL_MEMORY(memcpy(dest3, src3, 5), ft_memcpy(dest4, src4, 5), sizeof(dest4));
+	TEST_ASSERT_EQUAL_MEMORY(memcpy(dest5, src5, 1), ft_memcpy(dest6, src6, 1), sizeof(dest6));
 }
 
 void	test_strncmp()
