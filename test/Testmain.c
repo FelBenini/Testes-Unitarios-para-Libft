@@ -53,6 +53,15 @@ void	test_memset()
 	TEST_ASSERT_EQUAL_MEMORY(memset(src1, 'A', sizeof(src1)), ft_memset(src2, 'A', sizeof(src2)), sizeof(src2));
 }
 
+void	test_strncmp()
+{
+	char src1[] = "BANANA";
+	char src2[] = "BANANA";
+	char src3[] = "BANUNU";
+	TEST_ASSERT_EQUAL(strncmp(src1, src2, 5), ft_strncmp(src1, src2, 5));
+	TEST_ASSERT_EQUAL(strncmp(src1, src3, 5), ft_strncmp(src1, src3, 5));
+}
+
 void	test_bzero()
 {
 	char src2[] = "BANANA";
@@ -117,6 +126,7 @@ int	main(void)
 	RUN_TEST(test_strdup);
 	RUN_TEST(test_atoi);
 	RUN_TEST(test_memset);
+	RUN_TEST(test_strncmp);
 	RUN_TEST(test_bzero);
 	RUN_TEST(test_tolower);
 	RUN_TEST(test_toupper);
