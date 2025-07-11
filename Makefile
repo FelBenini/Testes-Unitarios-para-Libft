@@ -6,7 +6,7 @@
 #    By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 15:09:45 by fbenini-          #+#    #+#              #
-#    Updated: 2025/07/11 14:28:59 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/07/11 14:50:13 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,17 +22,25 @@ INCLUDE_DIR = include
 
 # Files
 UNITY_SRC = $(UNITY_DIR)/unity.c
-TEST_SRC = $(wildcard test/*.c)
+TEST_SRC = test/Testmain.c
+FN_SRC = test/file_name.c
 LIBFT_SRCS = $(wildcard $(SRC_DIR)/*.c)
 TEST_EXEC = $(BUILD_DIR)/test_runner
+FN_EXEC = $(BUILD_DIR)/file_runner
 
 # Default target
 all: $(BUILD_DIR) $(TEST_EXEC)
 	@./$(TEST_EXEC)
 
+file: $(BUILD_DIR) $(FN_EXEC)
+	@./$(FN_EXEC)
+
 # Create build directory
 $(BUILD_DIR):
 	@mkdir -p $(BUILD_DIR)
+
+$(FN_EXEC): $(FN_SRC)
+	@$(CC) $(CFLAGS) $^ -o $@
 
 # Build test executable
 $(TEST_EXEC): $(UNITY_SRC) $(TEST_SRC) $(LIBFT_SRCS)

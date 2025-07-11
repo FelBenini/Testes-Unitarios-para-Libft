@@ -6,7 +6,7 @@
 /*   By: wsilveir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 13:55:34 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/11 13:55:35 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/11 14:36:59 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(void)
 	int		i;
 	int		fcount;
 	int		success;
-	char	buf[1024];
 	char *files[] = {
 		"../src/ft_atoi.c",
 		"../src/ft_bzero.c",
