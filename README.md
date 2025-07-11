@@ -6,7 +6,7 @@ Esse é um repositório de testes unitários para facilitar a vida de quem está
 
 - **Clone o repositório:**
 ```bash
-https://github.com/FelBenini/libft_with_unit_tests.git libft_tests
+git clone https://github.com/FelBenini/libft_with_unit_tests.git libft_tests
 ```
 - **Copie a pasta da sua libft para a pasta src na raiz do repositório:**
 ```bash

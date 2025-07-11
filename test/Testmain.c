@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/11 12:38:38 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/11 14:27:46 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,28 @@ void tearDown()
 
 void	test_strlen()
 {
-	TEST_ASSERT_EQUAL(strlen("BANANA"), ft_strlen("BANANA"));
-	TEST_ASSERT_EQUAL(strlen("alguma coisa"), ft_strlen("alguma coisa"));
-	TEST_ASSERT_EQUAL(strlen("picanhazinha"), ft_strlen("picanhazinha"));
+	char *src[] = {"-4235", "31234", "   445", "     43254bc34", "-1", "BANANA", "MANGA", "TRYHARDER", "0", 0};
+	int i = 0;
+	while (src[i])
+	{
+		TEST_ASSERT_EQUAL(strlen(src[i]), ft_strlen(src[i]));
+		i++;
+	}
 }
 
 void	test_strdup()
 {
-	TEST_ASSERT_EQUAL_MEMORY(strdup("BANANA"), ft_strdup("BANANA"), 6);
-	TEST_ASSERT_EQUAL_STRING(strdup("BANANA"), ft_strdup("BANANA"));
+	char *src[] = {"BANANA", "4234523", "MANGA", "Vibe Coding", 0};
+	int i = 0;
+	while (src[i])
+	{
+		char *str = strdup(src[i]);
+		char *ft_str = ft_strdup(src[i]);
+		TEST_ASSERT_EQUAL_MEMORY(str, ft_str, sizeof(src[i]));
+		free(str);
+		free(ft_str);
+		i++;
+	}
 }
 
 void	test_atoi()
@@ -105,26 +118,56 @@ void test_toupper()
 
 void test_isprint()
 {
-	TEST_ASSERT_TRUE(ft_isprint('C'));
-	TEST_ASSERT_TRUE(ft_isprint('1'));
-	TEST_ASSERT_FALSE(ft_isprint('\n'));
-	TEST_ASSERT_TRUE(ft_isprint('+'));
+	char *equals_true = "C16mJGAGI LOPcfbxZBGFDg";
+	char *equals_false = "\n\t\r\v";
+	int i = 0;
+	while (equals_false[i])
+	{
+		TEST_ASSERT_FALSE(ft_isprint(equals_false[i]));
+		i++;
+	}
+	i = 0;
+	while (equals_true[i])
+	{
+		TEST_ASSERT_TRUE(ft_isprint(equals_true[i]));
+		i++;
+	}
 }
 
 void test_isalnum()
 {
-	TEST_ASSERT_TRUE(ft_isalnum('C'));
-	TEST_ASSERT_TRUE(ft_isalnum('1'));
-	TEST_ASSERT_FALSE(ft_isalnum('\n'));
-	TEST_ASSERT_FALSE(ft_isalnum('+'));
+	char *equals_true = "wABfsdgbfhdbnxm1234567890mnop";
+	char *equals_false = "\n\t\r\v =+><?";
+	int i = 0;
+	while (equals_false[i])
+	{
+		TEST_ASSERT_FALSE(ft_isalnum(equals_false[i]));
+		i++;
+	}
+	i = 0;
+	while (equals_true[i])
+	{
+		TEST_ASSERT_TRUE(ft_isalnum(equals_true[i]));
+		i++;
+	}
 }
 
 void test_isalpha()
 {
-	TEST_ASSERT_TRUE(ft_isalpha('C'));
-	TEST_ASSERT_FALSE(ft_isalpha('1'));
-	TEST_ASSERT_FALSE(ft_isalpha('\n'));
-	TEST_ASSERT_FALSE(ft_isalpha('+'));
+	char *equals_true = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *equals_false = "\n\t\r\v =+><?0123456789";
+	int i = 0;
+	while (equals_false[i])
+	{
+		TEST_ASSERT_FALSE(ft_isalpha(equals_false[i]));
+		i++;
+	}
+	i = 0;
+	while (equals_true[i])
+	{
+		TEST_ASSERT_TRUE(ft_isalpha(equals_true[i]));
+		i++;
+	}
 }
 
 void test_isdigit()

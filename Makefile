@@ -6,12 +6,12 @@
 #    By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 15:09:45 by fbenini-          #+#    #+#              #
-#    Updated: 2025/07/11 09:32:05 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/07/11 14:28:59 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -lbsd
 TEST_FLAGS = -Iinclude -Iunity/src
 
 # Directories
