@@ -178,6 +178,14 @@ void test_isdigit()
 	TEST_ASSERT_FALSE(ft_isdigit('+'));
 }
 
+void test_isascii()
+{
+	TEST_ASSERT_TRUE(ft_isascii('C'));
+	TEST_ASSERT_TRUE(ft_isascii('1'));
+	TEST_ASSERT_FALSE(ft_isascii(0x80));
+	TEST_ASSERT_TRUE(ft_isascii('+'));
+}
+
 int	main(void)
 {
 	UNITY_BEGIN();
@@ -192,6 +200,7 @@ int	main(void)
 	RUN_TEST(test_isprint);
 	RUN_TEST(test_isalnum);
 	RUN_TEST(test_isalpha);
+	RUN_TEST(test_isascii);
 	RUN_TEST(test_isdigit);
 	UNITY_END();
 
