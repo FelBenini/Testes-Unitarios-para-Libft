@@ -129,15 +129,15 @@ void test_isprint()
 	char *equals_true = "C16mJGAGI LOPcfbxZBGFDg";
 	char *equals_false = "\n\t\r\v";
 	int i = 0;
-	while (equals_false[i])
-	{
-		TEST_ASSERT_FALSE(ft_isprint(equals_false[i]));
-		i++;
-	}
-	i = 0;
 	while (equals_true[i])
 	{
 		TEST_ASSERT_TRUE(ft_isprint(equals_true[i]));
+		i++;
+	}
+	i = 0;
+	while (equals_false[i])
+	{
+		TEST_ASSERT_FALSE(ft_isprint(equals_false[i]));
 		i++;
 	}
 }
