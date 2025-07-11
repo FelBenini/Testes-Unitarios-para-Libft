@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/11 11:53:00 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/11 12:38:38 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,13 @@ void	test_strdup()
 
 void	test_atoi()
 {
-	TEST_ASSERT_EQUAL(atoi("-4234"), ft_atoi("-4234"));
-	TEST_ASSERT_EQUAL(atoi("   -3215"), ft_atoi("   -3215"));
-	TEST_ASSERT_EQUAL(atoi("4525634"), ft_atoi("4525634"));
-	TEST_ASSERT_EQUAL(atoi("42ad34"), ft_atoi("42ad34"));
+	char *src[] = {"-4235", "31234", "   445", "     43254bc34", "-1", "0", 0};
+	int i = 0;
+	while (src[i])
+	{
+		TEST_ASSERT_EQUAL(atoi(src[i]), ft_atoi(src[i]));
+		i++;
+	}
 }
 
 void	test_memset()
@@ -78,15 +81,19 @@ void	test_bzero()
 
 void test_tolower()
 {
-	TEST_ASSERT_EQUAL(tolower('C'), ft_tolower('C'));
-	TEST_ASSERT_EQUAL(tolower('b'), ft_tolower('b'));
-	TEST_ASSERT_EQUAL(tolower('O'), ft_tolower('O'));
-	TEST_ASSERT_EQUAL(tolower('p'), ft_tolower('p'));
+	char *src = "badskdfbasdfdsOfasa\t\nz\v\rdafbxlspoqvcx";
+	int i = 0;
+
+	while (src[i])
+	{
+		TEST_ASSERT_EQUAL(tolower(src[i]), ft_tolower(src[i]));
+		i++;
+	}
 }
 
 void test_toupper()
 {
-	char *src = "bOcgfs2mMnf\tasdghdMzx´to3Pcx0\nzm";
+	char *src = "bOcgfs2mMnf\tasdghdMzxto3Pcx0\nzm";
 	int i = 0;
 
 	while (src[i])
