@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Testmain.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/12 13:25:11 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/12 15:08:37 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,6 +269,24 @@ void test_memcmp()
 	TEST_ASSERT_EQUAL(memcmp(s1, s4, 5), ft_memcmp(s1, s4, 5));
 }
 
+void test_memchr()
+{
+	const char s1[] = "abcdef";
+	const char s2[] = "";
+	const char s3[] = "abcdeg";
+	const char s4[] = "abc\0eg";
+
+	TEST_ASSERT_EQUAL(memchr(s1, 'c', 6), ft_memchr(s1, 'c', 6));
+
+	TEST_ASSERT_EQUAL(memchr(s2, 'a', 6), ft_memchr(s2, 'a', 6));
+
+	TEST_ASSERT_EQUAL(memchr(s3, 0, 6), ft_memchr(s3, 0, 6));
+
+	TEST_ASSERT_EQUAL(memchr(s4, 'e', 4), ft_memchr(s4, 'e', 4));
+	
+	TEST_ASSERT_EQUAL(memchr(s4, 'e', 6), ft_memchr(s4, 'e', 6));
+}
+
 
 int	main(void)
 {
@@ -288,6 +306,7 @@ int	main(void)
 	RUN_TEST(test_isdigit);
 	RUN_TEST(test_memmove);
 	RUN_TEST(test_memcmp);
+	RUN_TEST(test_memchr);
 	UNITY_END();
 
 	return (0);
