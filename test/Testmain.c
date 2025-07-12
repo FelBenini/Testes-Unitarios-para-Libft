@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/12 15:08:37 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/12 15:21:08 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,6 +287,23 @@ void test_memchr()
 	TEST_ASSERT_EQUAL(memchr(s4, 'e', 6), ft_memchr(s4, 'e', 6));
 }
 
+void test_strchr()
+{
+	const char s1[] = "abcdef";
+	const char s2[] = "";
+	const char s3[] = "abcdeg";
+	const char s4[] = "abc\0eg";
+
+	TEST_ASSERT_EQUAL_STRING(strchr(s1, 'c'), ft_strchr(s1, 'c'));
+
+	TEST_ASSERT_EQUAL_STRING(strchr(s2, 'a'), ft_strchr(s2, 'a'));
+
+	TEST_ASSERT_EQUAL_STRING(strchr(s3, 0), ft_strchr(s3, 0));
+
+	TEST_ASSERT_EQUAL_STRING(strchr(s4, 'e'), ft_strchr(s4, 'e'));
+	
+	TEST_ASSERT_EQUAL_STRING(strchr(s4, 'e'), ft_strchr(s4, 'e'));
+}
 
 int	main(void)
 {
@@ -307,6 +324,7 @@ int	main(void)
 	RUN_TEST(test_memmove);
 	RUN_TEST(test_memcmp);
 	RUN_TEST(test_memchr);
+	RUN_TEST(test_strchr);
 	UNITY_END();
 
 	return (0);
