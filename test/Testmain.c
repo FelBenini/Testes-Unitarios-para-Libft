@@ -247,6 +247,29 @@ void test_memmove()
     TEST_ASSERT_EQUAL_STRING(buf2, buf1);
 }
 
+void test_memcmp()
+{
+	char s1[] = "abcdef";
+	char s2[] = "abcdef";
+	char s3[] = "abcdeg";
+	char s4[] = "abcde";
+	char s5[] = "abc\0ef";
+	char s6[] = "abc\0eg";
+
+	TEST_ASSERT_EQUAL(memcmp(s1, s2, 6), ft_memcmp(s1, s2, 6));
+
+	TEST_ASSERT_EQUAL(memcmp(s1, s3, 6), ft_memcmp(s1, s3, 6));
+
+	TEST_ASSERT_EQUAL(memcmp(s5, s6, 6), ft_memcmp(s5, s6, 6));
+
+	TEST_ASSERT_EQUAL(memcmp(s1, s3, 3), ft_memcmp(s1, s3, 3));
+
+	TEST_ASSERT_EQUAL(memcmp(s1, s3, 0), ft_memcmp(s1, s3, 0));
+
+	TEST_ASSERT_EQUAL(memcmp(s1, s4, 5), ft_memcmp(s1, s4, 5));
+}
+
+
 int	main(void)
 {
 	UNITY_BEGIN();
@@ -264,6 +287,7 @@ int	main(void)
 	RUN_TEST(test_isascii);
 	RUN_TEST(test_isdigit);
 	RUN_TEST(test_memmove);
+	RUN_TEST(test_memcmp);
 	UNITY_END();
 
 	return (0);
