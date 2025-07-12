@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/12 16:29:47 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/12 16:55:13 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../src/libft.h"
 #include <string.h>
 #include <ctype.h>
+#include <bsd/string.h>
 
 void setUp()
 {
@@ -323,6 +324,22 @@ void test_strrchr()
 	TEST_ASSERT_EQUAL_STRING(strrchr(s4, 'e'), ft_strrchr(s4, 'e'));
 }
 
+void test_strnstr()
+{
+    TEST_ASSERT_EQUAL_STRING(strnstr("Felipe Benini", "Be", 13), ft_strnstr("Felipe Benini", "Be", 13));
+    TEST_ASSERT_EQUAL_PTR(strnstr("Felipe Benini", "xyz", 13), ft_strnstr("Felipe Benini", "xyz", 13));
+    TEST_ASSERT_EQUAL_PTR(strnstr("short", "longneedle", 10), ft_strnstr("short", "longneedle", 10));
+    TEST_ASSERT_EQUAL_PTR(strnstr("Felipe Benini", "Benini", 6), ft_strnstr("Felipe Benini", "Benini", 6));
+    TEST_ASSERT_EQUAL_STRING(strnstr("Felipe Benini", "Benini", 13), ft_strnstr("Felipe Benini", "Benini", 13));
+    TEST_ASSERT_EQUAL_STRING(strnstr("Felipe", "", 6), ft_strnstr("Felipe", "", 6));
+    TEST_ASSERT_EQUAL_STRING(strnstr("", "", 0), ft_strnstr("", "", 0));
+    TEST_ASSERT_EQUAL_PTR(strnstr("", "abc", 3), ft_strnstr("", "abc", 3));
+    TEST_ASSERT_EQUAL_PTR(strnstr("Felipe", "Fe", 0), ft_strnstr("Felipe", "Fe", 0));
+    TEST_ASSERT_EQUAL_STRING(strnstr("Hello world", "Hello", 11), ft_strnstr("Hello world", "Hello", 11));
+    TEST_ASSERT_EQUAL_STRING(strnstr("Hello world", "world", 11), ft_strnstr("Hello world", "world", 11));
+    TEST_ASSERT_EQUAL_PTR(strnstr("abcdef", "cdeZ", 6), ft_strnstr("abcdef", "cdeZ", 6));
+}
+
 int	main(void)
 {
 	UNITY_BEGIN();
@@ -344,6 +361,7 @@ int	main(void)
 	RUN_TEST(test_memchr);
 	RUN_TEST(test_strchr);
 	RUN_TEST(test_strrchr);
+	RUN_TEST(test_strnstr);
 	UNITY_END();
 
 	return (0);
