@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/12 15:21:08 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/12 16:28:09 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,7 +273,7 @@ void test_memchr()
 {
 	const char s1[] = "abcdef";
 	const char s2[] = "";
-	const char s3[] = "abcdeg";
+	const char s3[] = "abcf";
 	const char s4[] = "abc\0eg";
 
 	TEST_ASSERT_EQUAL(memchr(s1, 'c', 6), ft_memchr(s1, 'c', 6));
@@ -305,6 +305,24 @@ void test_strchr()
 	TEST_ASSERT_EQUAL_STRING(strchr(s4, 'e'), ft_strchr(s4, 'e'));
 }
 
+void test_strrchr()
+{
+	const char s1[] = "abcdef";
+	const char s2[] = "";
+	const char s3[] = "abcdeg";
+	const char s4[] = "abc\0eg";
+
+	TEST_ASSERT_EQUAL_STRING(strrchr(s1, 'c'), ft_strrchr(s1, 'c'));
+
+	TEST_ASSERT_EQUAL_STRING(strrchr(s2, 'a'), ft_strrchr(s2, 'a'));
+
+	TEST_ASSERT_EQUAL_STRING(strrchr(s3, 0), ft_strrchr(s3, 0));
+
+	TEST_ASSERT_EQUAL_STRING(strrchr(s4, 'e'), ft_strrchr(s4, 'e'));
+	
+	TEST_ASSERT_EQUAL_STRING(strrchr(s4, 'e'), ft_strrchr(s4, 'e'));
+}
+
 int	main(void)
 {
 	UNITY_BEGIN();
@@ -325,6 +343,7 @@ int	main(void)
 	RUN_TEST(test_memcmp);
 	RUN_TEST(test_memchr);
 	RUN_TEST(test_strchr);
+	RUN_TEST(test_strrchr);
 	UNITY_END();
 
 	return (0);
