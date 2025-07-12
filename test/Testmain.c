@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:34:39 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/11 19:38:26 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/12 13:25:11 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,10 +201,50 @@ void test_isascii()
 
 void test_memmove()
 {
-	char str[] = "123456789";
-	char str1[] = "123456789";
-	TEST_ASSERT_EQUAL(memmove(str + 2, str, 5), ft_memmove(str + 2, str, 5));
-	TEST_ASSERT_EQUAL(memmove(str, str1, 5), ft_memmove(str, str1, 5));
+    char buf1[30];
+    char buf2[30];
+
+    // 1. Overlapping copy: dest inside src (forward copy)
+    strcpy(buf1, "abcdef123456");
+    strcpy(buf2, "abcdef123456");
+    ft_memmove(buf1 + 2, buf1, 8);
+    memmove(buf2 + 2, buf2, 8);
+    TEST_ASSERT_EQUAL_STRING(buf2, buf1);
+
+    // 2. Non-overlapping copy: src and dest completely separate
+    strcpy(buf1, "abcdef123456");
+    strcpy(buf2, "abcdef123456");
+    ft_memmove(buf1, buf1 + 6, 6);  // copy "123456" to start
+    memmove(buf2, buf2 + 6, 6);
+    TEST_ASSERT_EQUAL_STRING(buf2, buf1);
+
+    // 3. Overlapping copy: src inside dest (backward copy)
+    strcpy(buf1, "abcdef123456");
+    strcpy(buf2, "abcdef123456");
+    ft_memmove(buf1, buf1 + 2, 8);  // move "cdef1234" to start
+    memmove(buf2, buf2 + 2, 8);
+    TEST_ASSERT_EQUAL_STRING(buf2, buf1);
+
+    // 4. Copy zero bytes (should do nothing)
+    strcpy(buf1, "abcdef123456");
+    strcpy(buf2, "abcdef123456");
+    ft_memmove(buf1 + 4, buf1, 0);
+    memmove(buf2 + 4, buf2, 0);
+    TEST_ASSERT_EQUAL_STRING(buf2, buf1);
+
+    // 5. Copy full buffer (no overlap)
+    strcpy(buf1, "abcdef123456");
+    strcpy(buf2, "abcdef123456");
+    ft_memmove(buf1 + 15, buf1, 12);
+    memmove(buf2 + 15, buf2, 12);
+    TEST_ASSERT_EQUAL_STRING(buf2, buf1);
+
+    // 6. Copy overlapping buffers where src == dest (should be no-op)
+    strcpy(buf1, "abcdef123456");
+    strcpy(buf2, "abcdef123456");
+    ft_memmove(buf1, buf1, 12);
+    memmove(buf2, buf2, 12);
+    TEST_ASSERT_EQUAL_STRING(buf2, buf1);
 }
 
 int	main(void)
