@@ -201,10 +201,10 @@ void test_isascii()
 
 void test_memmove()
 {
-	char *str, *str2 = "LEARNINGISFUN";
-	char *src = str;
-	char *src2 = str2;
-	TEST_ASSERT_EQUAL(memmove(str + 8, src, 10), ft_memmove(str2 + 8, src2, 10));
+	char str[] = "123456789";
+	char str1[] = "123456789";
+	TEST_ASSERT_EQUAL(memmove(str + 2, str, 5), ft_memmove(str + 2, str, 5));
+	TEST_ASSERT_EQUAL(memmove(str, str1, 5), ft_memmove(str, str1, 5));
 }
 
 int	main(void)
@@ -223,6 +223,7 @@ int	main(void)
 	RUN_TEST(test_isalpha);
 	RUN_TEST(test_isascii);
 	RUN_TEST(test_isdigit);
+	RUN_TEST(test_memmove);
 	UNITY_END();
 
 	return (0);
