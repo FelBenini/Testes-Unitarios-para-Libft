@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/14 14:44:06 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/14 14:58:17 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,6 +285,40 @@ void test_strlcat()
 	TEST_ASSERT_EQUAL_STRING(dst1, dst2);
 }
 
+void test_strlcpy()
+{
+	char dst1[20], dst2[20];
+
+	strcpy(dst1, "Hello");
+	strcpy(dst2, "Hello");
+	TEST_ASSERT_EQUAL_UINT(strlcpy(dst1, " World", 20), ft_strlcpy(dst2, " World", 20));
+	TEST_ASSERT_EQUAL_STRING(dst1, dst2);
+	strcpy(dst1, "Hello");
+	strcpy(dst2, "Hello");
+	TEST_ASSERT_EQUAL_UINT(strlcpy(dst1, " World", 3), ft_strlcpy(dst2, " World", 3));
+	TEST_ASSERT_EQUAL_STRING(dst1, dst2);
+	strcpy(dst1, "Hello");
+	strcpy(dst2, "Hello");
+	TEST_ASSERT_EQUAL_UINT(strlcpy(dst1, "", 10), ft_strlcpy(dst2, "", 10));
+	TEST_ASSERT_EQUAL_STRING(dst1, dst2);
+	strcpy(dst1, "");
+	strcpy(dst2, "");
+	TEST_ASSERT_EQUAL_UINT(strlcpy(dst1, "Hello", 10), ft_strlcpy(dst2, "Hello", 10));
+	TEST_ASSERT_EQUAL_STRING(dst1, dst2);
+	strcpy(dst1, "Test");
+	strcpy(dst2, "Test");
+	TEST_ASSERT_EQUAL_UINT(strlcpy(dst1, "Add", 0), ft_strlcpy(dst2, "Add", 0));
+	TEST_ASSERT_EQUAL_STRING(dst1, dst2);
+	strcpy(dst1, "123456789");
+	strcpy(dst2, "123456789");
+	TEST_ASSERT_EQUAL_UINT(strlcpy(dst1, "A", 10), ft_strlcpy(dst2, "A", 10));
+	TEST_ASSERT_EQUAL_STRING(dst1, dst2);
+	strcpy(dst1, "Full");
+	strcpy(dst2, "Full");
+	TEST_ASSERT_EQUAL_UINT(strlcpy(dst1, "Buffer", 5), ft_strlcpy(dst2, "Buffer", 5));
+	TEST_ASSERT_EQUAL_STRING(dst1, dst2);
+}
+
 void test_strlen()
 {
 	char *src[] = {"-4235", "31234", "   445", "     43254bc34", "-1", "BANANA", "MANGA", "TRYHARDER", "0", "", " ", "\n\t", 0};
@@ -386,6 +420,7 @@ int main(void)
 	RUN_TEST(test_toupper);
 	RUN_TEST(test_calloc);
 	RUN_TEST(test_strlcat);
+	RUN_TEST(test_strlcpy);
 	UNITY_END();
 	return 0;
 }
