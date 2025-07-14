@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/14 19:37:40 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/14 20:15:31 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -289,6 +289,18 @@ void test_strchr()
 	TEST_ASSERT_NULL(ft_strchr(s1, 'x'));
 }
 
+void test_split()
+{
+	char *arr[] = {"Banana", "Bananinha"};
+	char **splitted;
+	splitted = ft_split("Banana Bananinha", ' ');
+	TEST_ASSERT_EQUAL_STRING_ARRAY(arr, splitted, 2);
+	char *arr2[] = {"1", "2", "4", "3"};
+	free(splitted);
+	splitted = ft_split("    1       2     4    3   ", ' ');
+	TEST_ASSERT_EQUAL_STRING_ARRAY(arr2, splitted, 4);
+}
+
 void test_strdup()
 {
 	char *src[] = {"BANANA", "4234523", "MANGA", "Vibe Coding", "", " ", "\n\t", 0};
@@ -503,6 +515,7 @@ int main(void)
 	RUN_TEST(test_strlcpy);
 	RUN_TEST(test_itoa);
 	RUN_TEST(test_substr);
+	RUN_TEST(test_split);
 	UNITY_END();
 	return 0;
 }
