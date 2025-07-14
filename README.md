@@ -17,3 +17,10 @@ cp /caminho/para/sua/libft ./src
 ```bash
 make test
 ```
+
+## Testes Prontos
+
+- [x] Funções da Libc (parte 1)
+- [ ] Funções Adicionais (parte 2)
+- [ ] Funções Bônus
+
