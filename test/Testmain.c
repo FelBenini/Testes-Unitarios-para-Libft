@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/14 16:55:24 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:28:52 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -385,6 +385,33 @@ void test_strrchr()
 	TEST_ASSERT_NULL(ft_strrchr(s1, 'z'));
 }
 
+
+void test_substr()
+{
+	const char s1[] = "Felipe Benini";
+	char *b1;
+	TEST_ASSERT_EQUAL_STRING("Benini", b1 = ft_substr(s1, 7, 6));
+	free(b1);
+	TEST_ASSERT_EQUAL_STRING("Felipe", b1 = ft_substr(s1, 0, 6));
+	free(b1);
+	TEST_ASSERT_EQUAL_STRING("pe B", b1 = ft_substr(s1, 4, 4));
+	free(b1);
+	TEST_ASSERT_EQUAL_STRING("Benini", b1 = ft_substr(s1, 7, 20));
+	free(b1);
+	TEST_ASSERT_EQUAL_STRING("", b1 = ft_substr(s1, 5, 0));
+	free(b1);
+	TEST_ASSERT_EQUAL_STRING("", b1 = ft_substr(s1, 50, 5));
+	free(b1);
+	TEST_ASSERT_EQUAL_STRING("Felipe Benini", b1 = ft_substr(s1, 0, 13));
+	free(b1);
+	const char empty[] = "";
+	TEST_ASSERT_EQUAL_STRING("", b1 = ft_substr(empty, 0, 5));
+	free(b1);
+	TEST_ASSERT_EQUAL_STRING("", b1 = ft_substr(empty, 2, 2));
+	free(b1);
+}
+
+
 void test_tolower()
 {
 	char *src = "badskdfbasdfdsOfasa\t\nz\v\rdafbxlspoqvcx";
@@ -434,6 +461,7 @@ int main(void)
 	RUN_TEST(test_strlcat);
 	RUN_TEST(test_strlcpy);
 	RUN_TEST(test_itoa);
+	RUN_TEST(test_substr);
 	UNITY_END();
 	return 0;
 }
