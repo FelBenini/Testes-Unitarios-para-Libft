@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/14 19:28:52 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:37:40 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void test_bzero()
 	TEST_ASSERT_EQUAL_MEMORY(src1, src2, sizeof(src2));
 }
 
+
 void test_calloc() {
     int *std = (int *)calloc(5, sizeof(int));
     int *ft = (int *)ft_calloc(5, sizeof(int));
@@ -67,7 +68,47 @@ void test_calloc() {
     TEST_ASSERT_NOT_NULL(large_ft);
     free(large_std);
     free(large_ft);
+
+    void *zero_std = calloc(0, sizeof(int));
+    void *zero_ft = ft_calloc(0, sizeof(int));
+    TEST_ASSERT_TRUE((zero_std == NULL && zero_ft == NULL) || (zero_std != NULL && zero_ft != NULL));
+    free(zero_std);
+    free(zero_ft);
+
+    zero_std = calloc(5, 0);
+    zero_ft = ft_calloc(5, 0);
+    TEST_ASSERT_TRUE((zero_std == NULL && zero_ft == NULL) || (zero_std != NULL && zero_ft != NULL));
+    free(zero_std);
+    free(zero_ft);
+
+    double *d_std = (double *)calloc(3, sizeof(double));
+    double *d_ft = (double *)ft_calloc(3, sizeof(double));
+    TEST_ASSERT_NOT_NULL(d_std);
+    TEST_ASSERT_NOT_NULL(d_ft);
+    free(d_std);
+    free(d_ft);
+
+    size_t near_max = (size_t)1 << 20;
+    int *near_std = (int *)calloc(near_max, sizeof(int));
+    int *near_ft = (int *)ft_calloc(near_max, sizeof(int));
+    TEST_ASSERT_NOT_NULL(near_std);
+    TEST_ASSERT_NOT_NULL(near_ft);
+    free(near_std);
+    free(near_ft);
+
+    struct {
+        int a;
+        char b;
+        double c;
+    } *s_std = calloc(1, sizeof(*s_std)), *s_ft = ft_calloc(1, sizeof(*s_std));
+    TEST_ASSERT_NOT_NULL(s_std);
+    TEST_ASSERT_NOT_NULL(s_ft);
+    TEST_ASSERT_EQUAL_INT(s_std->a, s_ft->a);
+    TEST_ASSERT_EQUAL_INT(s_std->b, s_ft->b);
+    free(s_std);
+    free(s_ft);
 }
+
 
 void test_isalnum()
 {
