@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/14 14:58:17 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:55:24 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,18 @@ void test_isprint()
 	for (int i = 0; i < 32; i++)
 		TEST_ASSERT_FALSE(ft_isprint(i));
 	TEST_ASSERT_FALSE(ft_isprint(127));
+}
+
+void test_itoa()
+{
+	TEST_ASSERT_EQUAL_STRING("4320", ft_itoa(4320));
+	TEST_ASSERT_EQUAL_STRING("-423657", ft_itoa(-423657));
+	TEST_ASSERT_EQUAL_STRING("0", ft_itoa(0));
+	TEST_ASSERT_EQUAL_STRING("-2147483648", ft_itoa(-2147483648));
+	TEST_ASSERT_EQUAL_STRING("2147483647", ft_itoa(2147483647));
+	TEST_ASSERT_EQUAL_STRING("1", ft_itoa(1));
+	TEST_ASSERT_EQUAL_STRING("5367907", ft_itoa(5367907));
+	TEST_ASSERT_EQUAL_STRING("10", ft_itoa(10));
 }
 
 void test_memchr()
@@ -421,6 +433,7 @@ int main(void)
 	RUN_TEST(test_calloc);
 	RUN_TEST(test_strlcat);
 	RUN_TEST(test_strlcpy);
+	RUN_TEST(test_itoa);
 	UNITY_END();
 	return 0;
 }
