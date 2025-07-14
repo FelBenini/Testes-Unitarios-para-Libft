@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/14 12:36:00 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/14 13:07:55 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,35 @@ void test_bzero()
 	bzero(src1, sizeof(src1));
 	ft_bzero(src2, sizeof(src2));
 	TEST_ASSERT_EQUAL_MEMORY(src1, src2, sizeof(src2));
+}
+
+void test_calloc() {
+    int *std = (int *)calloc(5, sizeof(int));
+    int *ft = (int *)ft_calloc(5, sizeof(int));
+    TEST_ASSERT_NOT_NULL(std);
+    TEST_ASSERT_NOT_NULL(ft);
+    for (int i = 0; i < 5; i++) {
+        TEST_ASSERT_EQUAL_INT(std[i], ft[i]);
+    }
+    free(std);
+    free(ft);
+
+    TEST_ASSERT_NULL(ft_calloc(SIZE_MAX, 2));
+
+    char *c_std = (char *)calloc(1, 1);
+    char *c_ft = (char *)ft_calloc(1, 1);
+    TEST_ASSERT_NOT_NULL(c_std);
+    TEST_ASSERT_NOT_NULL(c_ft);
+    TEST_ASSERT_EQUAL_CHAR(*c_std, *c_ft);
+    free(c_std);
+    free(c_ft);
+
+    void *large_std = calloc(10000, sizeof(int));
+    void *large_ft = ft_calloc(10000, sizeof(int));
+    TEST_ASSERT_NOT_NULL(large_std);
+    TEST_ASSERT_NOT_NULL(large_ft);
+    free(large_std);
+    free(large_ft);
 }
 
 void test_isalnum()
@@ -321,6 +350,7 @@ int main(void)
 	RUN_TEST(test_strrchr);
 	RUN_TEST(test_tolower);
 	RUN_TEST(test_toupper);
+	RUN_TEST(test_calloc);
 	UNITY_END();
 	return 0;
 }
