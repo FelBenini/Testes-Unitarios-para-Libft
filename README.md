@@ -2,11 +2,13 @@
 
 Esse é um repositório de testes unitários para facilitar a vida de quem está avaliando o primeiro projeto da formação da 42, o libft. Estamos utilizando o Unity para realizar os testes unitários, leia abaixo para entender como você pode rodar os testes com o seu código.
 
+Esse repositório não foi feito para ser utilizado como um tipo de trapaça, apenas para estudar testes unitários e facilitar a vida de quem está avaliando a libft e não ter que ficar descomentando main que nem louco.
+
 ## Como Rodar
 
 - **Clone o repositório:**
 ```bash
-git clone https://github.com/FelBenini/libft_with_unit_tests.git libft_tests
+git clone https://github.com/FelBenini/Testes-Unitarios-para-Libft.git libft_tests
 ```
 - **Copie a pasta da sua libft para a pasta src na raiz do repositório:**
 ```bash
