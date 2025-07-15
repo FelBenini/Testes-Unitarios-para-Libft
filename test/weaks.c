@@ -24,11 +24,10 @@ __attribute__((weak)) int ft_atoi(const char *str)
 	return (-1);
 }
 
-__attribute__((weak)) void	*ft_bzero(void *src, size_t len)
+__attribute__((weak)) void	ft_bzero(void *src, size_t len)
 {
 	(void)src;
 	(void)len;
-	return ("Function not implemented");
 }
 
 __attribute__((weak)) int ft_isalnum(int x)

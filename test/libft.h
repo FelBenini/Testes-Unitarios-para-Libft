@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:32:35 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/15 18:17:01 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:21:28 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int		ft_atoi(const char *str);
 void	*ft_memset(void *src, int value, size_t len);
 size_t	ft_strlen(char *str);
-void	*ft_bzero(void *src, size_t len);
+void	ft_bzero(void *src, size_t len);
 char	*ft_strdup(const char *src);
 int		ft_tolower(int C);
 int		ft_toupper(int c);

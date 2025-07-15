@@ -13,7 +13,7 @@ git clone https://github.com/FelBenini/Testes-Unitarios-para-Libft.git libft_tes
 - **Copie a pasta da sua libft para a pasta src na raiz do repositório:**
 ```bash
 cd ./libft_tests
-cp /caminho/para/sua/libft ./src
+cp -r /caminho/para/sua/libft ./src
 ```
 - **Rode os testes com o Makefile:**
 ```bash
