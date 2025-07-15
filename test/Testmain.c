@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/14 21:13:02 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/15 14:27:43 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -289,6 +289,71 @@ void test_strchr()
 	TEST_ASSERT_NULL(ft_strchr(s1, 'x'));
 }
 
+void function_to_pass(unsigned int n, char *c)
+{
+    *c = n + '0';
+}
+
+void uppercase_index(unsigned int n, char *c)
+{
+    *c = 'A' + n;
+}
+
+void increment_by_index(unsigned int n, char *c)
+{
+    *c = *c + n;
+}
+
+void noop(unsigned int n, char *c)
+{
+    (void)n;
+    (void)c;
+}
+
+void test_striteri()
+{
+    {
+        char str[] = "BANANA";
+        ft_striteri(str, function_to_pass);
+        TEST_ASSERT_EQUAL_STRING("012345", str);
+    }
+    {
+        char str[] = "";
+        ft_striteri(str, function_to_pass);
+        TEST_ASSERT_EQUAL_STRING("", str);
+    }
+    {
+        char str[] = "A";
+        ft_striteri(str, function_to_pass);
+        TEST_ASSERT_EQUAL_STRING("0", str);
+    }
+    {
+        char str[] = "banana";
+        ft_striteri(str, function_to_pass);
+        TEST_ASSERT_EQUAL_STRING("012345", str);
+    }
+    {
+        char str[] = "abcdef";
+        ft_striteri(str, uppercase_index);
+        TEST_ASSERT_EQUAL_STRING("ABCDEF", str);
+    }
+    {
+        char str[] = "aaaaaa";
+        ft_striteri(str, increment_by_index);
+        TEST_ASSERT_EQUAL_STRING("abcdef", str);
+    }
+    {
+        char str[] = "Hello!";
+        ft_striteri(str, noop);
+        TEST_ASSERT_EQUAL_STRING("Hello!", str);
+    }
+    {
+        char str[] = "123!@#";
+        ft_striteri(str, function_to_pass);
+        TEST_ASSERT_EQUAL_STRING("012345", str);
+    }
+}
+
 void test_split()
 {
 	char *arr[] = {"Banana", "Bananinha"};
@@ -530,6 +595,7 @@ int main(void)
 	RUN_TEST(test_substr);
 	RUN_TEST(test_split);
 	RUN_TEST(test_strjoin);
+	RUN_TEST(test_striteri);
 	UNITY_END();
 	return 0;
 }
