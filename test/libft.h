@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:32:35 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/15 14:11:57 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:17:01 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 void	*ft_memset(void *src, int value, size_t len);
 size_t	ft_strlen(char *str);
 void	*ft_bzero(void *src, size_t len);

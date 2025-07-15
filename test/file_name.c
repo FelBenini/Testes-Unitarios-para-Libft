@@ -6,14 +6,14 @@
 /*   By: wsilveir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 13:55:34 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/11 14:58:01 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:17:27 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <unistd.h>
 #include <fcntl.h>
-#include "libft.h"
+#include <stdio.h>
 
 int	main(void)
 {

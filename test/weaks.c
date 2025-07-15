@@ -18,7 +18,7 @@ __attribute__((weak)) void	*ft_calloc(size_t nmemb, size_t size)
 	return ("Function not implemented");
 }
 
-__attribute__((weak)) int ft_atoi(char *str)
+__attribute__((weak)) int ft_atoi(const char *str)
 {
 	(void)str;
 	return (-1);
