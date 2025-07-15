@@ -9,7 +9,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/libft.h"
+#include "./libft.h"
 
 __attribute__((weak)) void	*ft_calloc(size_t nmemb, size_t size)
 {

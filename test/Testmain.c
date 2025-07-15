@@ -6,12 +6,12 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/15 14:27:43 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:02:46 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unity.h"
-#include "../src/libft.h"
+#include "libft.h"
 #include <string.h>
 #include <ctype.h>
 #include <bsd/string.h>
