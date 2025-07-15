@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/14 20:15:31 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/14 21:13:02 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -316,6 +316,19 @@ void test_strdup()
 	}
 }
 
+void	test_strjoin()
+{
+	char *res;
+	res = ft_strjoin("oi", "oi");
+	TEST_ASSERT_EQUAL_STRING("oioi", res);
+	free(res);
+	res = ft_strjoin("ola meu ", "amigo");
+	TEST_ASSERT_EQUAL_STRING("ola meu amigo", res);
+	free(res);
+	res = ft_strjoin("O Otton ", "e meu heroi");
+	TEST_ASSERT_EQUAL_STRING("O Otton e meu heroi", res);
+}
+
 void test_strlcat()
 {
 	char dst1[20], dst2[20];
@@ -516,6 +529,7 @@ int main(void)
 	RUN_TEST(test_itoa);
 	RUN_TEST(test_substr);
 	RUN_TEST(test_split);
+	RUN_TEST(test_strjoin);
 	UNITY_END();
 	return 0;
 }
