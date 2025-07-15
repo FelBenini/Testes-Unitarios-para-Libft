@@ -6,7 +6,7 @@
 #    By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 15:09:45 by fbenini-          #+#    #+#              #
-#    Updated: 2025/07/11 14:50:13 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/07/15 17:28:55 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDE_DIR = include
 
 # Files
 UNITY_SRC = $(UNITY_DIR)/unity.c
-TEST_SRC = test/Testmain.c
+TEST_SRC = test/Testmain.c test/weaks.c
 FN_SRC = test/file_name.c
 LIBFT_SRCS = $(wildcard $(SRC_DIR)/*.c)
 TEST_EXEC = $(BUILD_DIR)/test_runner
