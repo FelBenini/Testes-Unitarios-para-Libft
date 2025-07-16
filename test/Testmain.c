@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/15 18:18:17 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/15 21:21:01 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,6 +285,7 @@ void test_strchr()
 	TEST_ASSERT_EQUAL_STRING(strchr(s1, 'c'), ft_strchr(s1, 'c'));
 	TEST_ASSERT_EQUAL_STRING(strchr(s3, 0), ft_strchr(s3, 0));
 	TEST_ASSERT_EQUAL_STRING(strchr(s4, 'e'), ft_strchr(s4, 'e'));
+	TEST_ASSERT_EQUAL_STRING(strchr(s4, 'a' + 256), ft_strchr(s4, 'a' + 256));
 	TEST_ASSERT_NULL(ft_strchr(s2, 'a'));
 	TEST_ASSERT_NULL(ft_strchr(s1, 'x'));
 }
@@ -545,7 +546,7 @@ void test_substr()
 
 void test_tolower()
 {
-	char *src = "badskdfbasdfdsOfasa\t\nz\v\rdafbxlspoqvcx";
+	char *src = "badskABCDEFGHIJKLMNOPQRSTUVWXYZsOfasa\t\nz\v\rdafbxlspoqvcx";
 	int i = 0;
 	while (src[i])
 	{
@@ -556,7 +557,7 @@ void test_tolower()
 
 void test_toupper()
 {
-	char *src = "bOcgfs2mMnf\tasdghdMzxto3Pcx0\nzm";
+	char *src = "bOcABCDEFGHIgfs2mMnf\tasdghdMzxZDtoER3Pcx0\nzm";
 	int i = 0;
 	while (src[i])
 	{
