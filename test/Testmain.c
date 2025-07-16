@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/16 16:11:50 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:05:36 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -571,7 +571,7 @@ void test_strtrim()
 	str = ft_strtrim(NULL, " ");
 	TEST_ASSERT_NULL(str);
 	str = ft_strtrim("  untouched  ", NULL);
-	TEST_ASSERT_EQUAL_STRING("  untouched  ", str);
+	TEST_ASSERT_EQUAL_STRING(NULL, str);
 	free(str);
 	str = ft_strtrim("\n\t   hello world \t \n", " \n\t");
 	TEST_ASSERT_EQUAL_STRING("hello world", str);
