@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/16 11:45:37 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/16 16:11:50 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -543,6 +543,40 @@ void test_strrchr()
 	TEST_ASSERT_NULL(ft_strrchr(s1, 'z'));
 }
 
+void test_strtrim()
+{
+	char *str;
+
+	str = ft_strtrim("          dsadsa asd   sad      ", " ");
+	TEST_ASSERT_EQUAL_STRING("dsadsa asd   sad", str);
+	free(str);
+	str = ft_strtrim("bdbdbdbdbdbdbdbdbdhelloworldabdbdbdbdbdbdbdbd", "bd");
+	TEST_ASSERT_EQUAL_STRING("helloworlda", str);
+	free(str);
+	str = ft_strtrim("", " ");
+	TEST_ASSERT_EQUAL_STRING("", str);
+	free(str);
+	str = ft_strtrim("xxxxxx", "x");
+	TEST_ASSERT_EQUAL_STRING("", str);
+	free(str);
+	str = ft_strtrim("no-trim-needed", " ");
+	TEST_ASSERT_EQUAL_STRING("no-trim-needed", str);
+	free(str);
+	str = ft_strtrim("  keep this  ", "");
+	TEST_ASSERT_EQUAL_STRING("  keep this  ", str);
+	free(str);
+	str = ft_strtrim("###left-only", "#");
+	TEST_ASSERT_EQUAL_STRING("left-only", str);
+	free(str);
+	str = ft_strtrim(NULL, " ");
+	TEST_ASSERT_NULL(str);
+	str = ft_strtrim("  untouched  ", NULL);
+	TEST_ASSERT_EQUAL_STRING("  untouched  ", str);
+	free(str);
+	str = ft_strtrim("\n\t   hello world \t \n", " \n\t");
+	TEST_ASSERT_EQUAL_STRING("hello world", str);
+	free(str);
+}
 
 void test_substr()
 {
@@ -623,6 +657,7 @@ int main(void)
 	RUN_TEST(test_split);
 	RUN_TEST(test_strjoin);
 	RUN_TEST(test_striteri);
+	RUN_TEST(test_strtrim);
 	UNITY_END();
 	return 0;
 }

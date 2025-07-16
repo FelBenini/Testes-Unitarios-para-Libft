@@ -203,3 +203,10 @@ __attribute__((weak)) int ft_toupper(int c)
 	(void)c;
 	return (0);
 }
+
+__attribute__((weak)) char	*ft_strtrim(char const *s1, char const *set)
+{
+	(void)s1;
+	(void)set;
+	return (0);
+}
