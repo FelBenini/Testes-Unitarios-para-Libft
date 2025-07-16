@@ -6,7 +6,7 @@
 /*   By: wsilveir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 13:55:34 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/15 18:17:27 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:44:11 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define RED "\033[31m"
+#define RESET "\033[0m"
 
 int	main(void)
 {
@@ -68,7 +72,7 @@ int	main(void)
 		fd = open(files[i], O_RDONLY);
 		if (fd == -1)
 		{
-			printf("Invalid file name: %s\n", files[i]);
+			printf(RED"❌ Invalid file name: %s\n"RESET, files[i]);
 			success = 0;
 			fcount++;
 		}
@@ -78,13 +82,13 @@ int	main(void)
 	if (success)
 	{
 		printf("-------------------------------------------------------\n");
-		printf("SUCCESS: all file names were validated successfully.");
+		printf(GREEN"✅ SUCCESS: all file names were validated successfully."RESET);
 		printf("\n------------------------------------------\n");
 	}
 	else
 	{
 		printf("-------------------------------------------------------\n");
-		printf("FAILED: %d files failed verification.", fcount);
+		printf(RED"❌ FAILED: %d files failed verification."RESET, fcount);
 		printf("\n-------------------------------------------------------\n");
 	}
 
