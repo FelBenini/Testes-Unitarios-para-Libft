@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Testmain.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/15 21:21:01 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/16 11:45:37 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,18 +175,43 @@ void test_isprint()
 		TEST_ASSERT_FALSE(ft_isprint(i));
 	TEST_ASSERT_FALSE(ft_isprint(127));
 }
-
 void test_itoa()
 {
-	TEST_ASSERT_EQUAL_STRING("4320", ft_itoa(4320));
-	TEST_ASSERT_EQUAL_STRING("-423657", ft_itoa(-423657));
-	TEST_ASSERT_EQUAL_STRING("0", ft_itoa(0));
-	TEST_ASSERT_EQUAL_STRING("-2147483648", ft_itoa(-2147483648));
-	TEST_ASSERT_EQUAL_STRING("2147483647", ft_itoa(2147483647));
-	TEST_ASSERT_EQUAL_STRING("1", ft_itoa(1));
-	TEST_ASSERT_EQUAL_STRING("5367907", ft_itoa(5367907));
-	TEST_ASSERT_EQUAL_STRING("10", ft_itoa(10));
+	char *str;
+
+	str = ft_itoa(4320);
+	TEST_ASSERT_EQUAL_STRING("4320", str);
+	free(str);
+
+	str = ft_itoa(-423657);
+	TEST_ASSERT_EQUAL_STRING("-423657", str);
+	free(str);
+
+	str = ft_itoa(0);
+	TEST_ASSERT_EQUAL_STRING("0", str);
+	free(str);
+
+	str = ft_itoa(-2147483648);
+	TEST_ASSERT_EQUAL_STRING("-2147483648", str);
+	free(str);
+
+	str = ft_itoa(2147483647);
+	TEST_ASSERT_EQUAL_STRING("2147483647", str);
+	free(str);
+
+	str = ft_itoa(1);
+	TEST_ASSERT_EQUAL_STRING("1", str);
+	free(str);
+
+	str = ft_itoa(5367907);
+	TEST_ASSERT_EQUAL_STRING("5367907", str);
+	free(str);
+
+	str = ft_itoa(10);
+	TEST_ASSERT_EQUAL_STRING("10", str);
+	free(str);
 }
+
 
 void test_memchr()
 {
@@ -513,6 +538,7 @@ void test_strrchr()
 	TEST_ASSERT_EQUAL_STRING(strrchr(s1, 'c'), ft_strrchr(s1, 'c'));
 	TEST_ASSERT_EQUAL_STRING(strrchr(s3, 0), ft_strrchr(s3, 0));
 	TEST_ASSERT_EQUAL_STRING(strrchr(s4, 'e'), ft_strrchr(s4, 'e'));
+	TEST_ASSERT_EQUAL_STRING(strrchr(s4, 'a' + 256), ft_strrchr(s4, 'a' + 256));
 	TEST_ASSERT_NULL(ft_strrchr(s2, 'a'));
 	TEST_ASSERT_NULL(ft_strrchr(s1, 'z'));
 }
