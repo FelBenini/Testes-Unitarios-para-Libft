@@ -216,3 +216,9 @@ __attribute__((weak)) void ft_putchar_fd(char c, int fd)
 	(void)c;
 	(void)fd;
 }
+
+__attribute__((weak)) void ft_putstr_fd(char *s, int fd)
+{
+	(void)s;
+	(void)fd;
+}
