@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 12:37:10 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 12:40:58 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,13 @@ void test_calloc() {
     TEST_ASSERT_EQUAL_INT(s_std->b, s_ft->b);
     free(s_std);
     free(s_ft);
+
+	// Teste de overflow: SIZE_MAX / 2 + 1 * 2 > SIZE_MAX
+    size_t huge = SIZE_MAX / 2 + 1;
+    void *overflow_std = calloc(huge, 2);
+    void *overflow_ft = ft_calloc(huge, 2);
+    TEST_ASSERT_NULL(overflow_std);
+    TEST_ASSERT_NULL(overflow_ft);
 }
 
 
