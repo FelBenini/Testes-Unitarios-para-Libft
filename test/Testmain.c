@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/16 18:05:36 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/17 12:37:10 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -499,6 +499,82 @@ void test_strlen()
 	}
 }
 
+
+char uppercase_index_mapi(unsigned int n, char c)
+{
+	(void)c;
+    return ('A' + n);
+}
+
+char increment_by_index_mapi(unsigned int n, char c)
+{
+    return(c + n);
+}
+
+char function_to_pass_mapi(unsigned int n, char c)
+{
+	(void)c;
+    return(n + '0');
+}
+
+char noop_mapi(unsigned int n, char c)
+{
+    (void)n;
+    (void)c;
+	return (c);
+}
+
+void test_strmapi()
+{
+    {
+        char const str[] = "BANANA";
+		char *dup = ft_strmapi(str, function_to_pass_mapi);
+        TEST_ASSERT_EQUAL_STRING("012345", dup);
+		free(dup);
+    }
+    {
+        char str[] = "";
+        char *dup = ft_strmapi(str, function_to_pass_mapi);
+        TEST_ASSERT_EQUAL_STRING("", dup);
+		free(dup);
+    }
+    {
+        char str[] = "A";
+		char *dup = ft_strmapi(str, function_to_pass_mapi);
+        TEST_ASSERT_EQUAL_STRING("0", dup);
+		free(dup);
+    }
+    {
+        char str[] = "banana";
+		char *dup = ft_strmapi(str, function_to_pass_mapi);
+        TEST_ASSERT_EQUAL_STRING("012345", dup);
+		free(dup);
+    }
+    {
+        char str[] = "abcdef";
+        char *dup = ft_strmapi(str, uppercase_index_mapi);
+        TEST_ASSERT_EQUAL_STRING("ABCDEF", dup);
+		free(dup);
+    }
+    {
+        char str[] = "aaaaaa";
+        char *dup = ft_strmapi(str, increment_by_index_mapi);
+        TEST_ASSERT_EQUAL_STRING("abcdef", dup);
+		free(dup);
+    }
+    {
+        char str[] = "Hello!";
+        char *dup = ft_strmapi(str, noop_mapi);
+        TEST_ASSERT_EQUAL_STRING("Hello!", dup);
+		free(dup);
+    }
+    {
+        char str[] = "123!@#";
+        ft_striteri(str, function_to_pass);
+        TEST_ASSERT_EQUAL_STRING("012345", str);
+    }
+}
+
 void test_strncmp()
 {
 	char src1[] = "BANANA";
@@ -658,6 +734,7 @@ int main(void)
 	RUN_TEST(test_strjoin);
 	RUN_TEST(test_striteri);
 	RUN_TEST(test_strtrim);
+	RUN_TEST(test_strmapi);
 	UNITY_END();
 	return 0;
 }
