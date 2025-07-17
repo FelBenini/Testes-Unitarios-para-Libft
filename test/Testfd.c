@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 13:33:45 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 14:17:44 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 14:22:20 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 void function_to_iterate_putchar(char c)
 {
 	int file;
-	char string[2]; // space for 'c' and '\0'
+	char string[2];
+	char ch[] = {c, '\0'};
 	FILE *fptr;
 	fptr = fopen("./test/file.txt", "w");
 	fclose(fptr);
 	file = open("./test/file.txt", O_RDWR);
 	ft_putchar_fd(c, file);
-	close(file); // make sure changes are flushed
+	close(file);
 	fptr = fopen("./test/file.txt", "r");
-	fgets(string, 2, fptr); // read up to 1 char + null terminator
-	TEST_ASSERT_EQUAL_STRING(&c, string);
+	fgets(string, 2, fptr);
+	TEST_ASSERT_EQUAL_STRING(ch, string);
 	fclose(fptr);
 	remove("./test/file.txt");
 }
