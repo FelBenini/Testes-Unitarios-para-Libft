@@ -223,8 +223,14 @@ __attribute__((weak)) void ft_putstr_fd(char *s, int fd)
 	(void)fd;
 }
 
-__attribute__((weak)) void	ft_putendl_fd(char *s, int fd)
+__attribute__((weak)) void ft_putendl_fd(char *s, int fd)
 {
 	(void)s;
+	(void)fd;
+}
+
+__attribute__((weak)) void ft_putnbr_fd(int n, int fd)
+{
+	(void)n;
 	(void)fd;
 }

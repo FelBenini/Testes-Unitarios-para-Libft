@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 13:33:45 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 18:30:14 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 18:41:01 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,34 @@ void test_putendl_fd(void)
     for (int i = 0; test_strings[i] != NULL; i++) {
         function_to_iterate_putendl(test_strings[i]);
     }
+}
+
+void function_to_iterate_putnbr(int n)
+{
+	int file;
+	char buffer[50];
+	char expected[50];
+	FILE *fptr;
+
+	fptr = fopen("./test/file.txt", "w");
+	fclose(fptr);
+	file = open("./test/file.txt", O_RDWR);
+	ft_putnbr_fd(n, file);
+	close(file);
+	fptr = fopen("./test/file.txt", "r");
+	fgets(buffer, sizeof(buffer), fptr);
+	fclose(fptr);
+	sprintf(expected, "%d", n);
+	TEST_ASSERT_EQUAL_STRING(expected, buffer);
+	remove("./test/file.txt");
+}
+
+void test_putnbr_fd()
+{
+	int nums[] = {0, 1, -1, 42, -42, 123456, -654321, INT_MAX, INT_MIN};
+	int len = sizeof(nums) / sizeof(nums[0]);
+	for (int i = 0; i < len; i++)
+	{
+		function_to_iterate_putnbr(nums[i]);
+	}
 }

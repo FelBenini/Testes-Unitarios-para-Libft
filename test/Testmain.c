@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 17:49:26 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 18:40:10 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -712,6 +712,8 @@ void test_toupper()
 
 void test_putcharfd();
 void test_putstr_fd();
+void test_putendl_fd();
+void test_putnbr_fd();
 
 int main(void)
 {
@@ -748,7 +750,10 @@ int main(void)
 	RUN_TEST(test_strmapi);
 	RUN_TEST(test_putcharfd);
 	RUN_TEST(test_putstr_fd);
+	RUN_TEST(test_putendl_fd);
+	RUN_TEST(test_putnbr_fd);
 	UNITY_END();
+	remove("./test/file.txt");
 	return 0;
 }
 
