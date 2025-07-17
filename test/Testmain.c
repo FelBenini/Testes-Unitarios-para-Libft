@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 20:53:25 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:57:30 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,6 +231,7 @@ void test_memchr()
 	TEST_ASSERT_EQUAL(memchr(s3, 0, 6), ft_memchr(s3, 0, 6));
 	TEST_ASSERT_EQUAL(memchr(s4, 'e', 4), ft_memchr(s4, 'e', 4));
 	TEST_ASSERT_EQUAL(memchr(s4, 'e', 6), ft_memchr(s4, 'e', 6));
+	TEST_ASSERT_EQUAL(memchr(s4, 'e' + 256, 6), ft_memchr(s4, 'e' + 256, 6));
 	TEST_ASSERT_EQUAL_PTR(NULL, ft_memchr(s1, 'z', 6));
 }
 
