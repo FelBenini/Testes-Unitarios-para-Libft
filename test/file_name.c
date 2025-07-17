@@ -6,20 +6,21 @@
 /*   By: wsilveir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 13:55:34 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/16 19:44:11 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:49:07 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
 #include <stdio.h>
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	int		fd;
 	int		i;
@@ -61,6 +62,18 @@ int	main(void)
 		"./src/ft_putendl_fd.c",
 		"./src/ft_putnbr_fd.c"
 	};
+	char *bonusfiles[] = {
+		"./src/ft_lstnew.c",
+		"./src/ft_lstadd_front.c",
+		"./src/ft_lstsize.c",
+		"./src/ft_lstlast.c",
+		"./src/ft_lstadd_back.c",
+		"./src/ft_lstdelone.c",
+		"./src/ft_lstclear.c",
+		"./src/ft_lstiter.c",
+		"./src/ft_lstmap.c",
+		0
+	};
 
 
 	i = 0;
@@ -76,7 +89,24 @@ int	main(void)
 			success = 0;
 			fcount++;
 		}
+		close(fd);
+		i++;
+	}
+	i = 0;
+	if (argc == 2 && strcmp(argv[1], "--check-bonus") == 0)
+	{
+		while (bonusfiles[i])
+		{
+			fd = open(bonusfiles[i], O_RDONLY);
+			if (fd == -1)
+			{
+				printf(RED"Invalid file name: %s\n"RESET, bonusfiles[i]);
+				success = 0;
+				fcount++;
+			}
+			close(fd);
 			i++;
+		}
 	}
 
 	if (success)

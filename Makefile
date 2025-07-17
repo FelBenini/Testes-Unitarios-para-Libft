@@ -6,7 +6,7 @@
 #    By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 15:09:45 by fbenini-          #+#    #+#              #
-#    Updated: 2025/07/17 13:43:22 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/07/17 20:15:35 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ all: $(BUILD_DIR) $(TEST_EXEC)
 
 file: $(BUILD_DIR) $(FN_EXEC)
 	@./$(FN_EXEC)
+
+file-bonus: $(BUILD_DIR) $(FN_EXEC)
+	@./$(FN_EXEC) --check-bonus
 
 # Create build directory
 $(BUILD_DIR):
