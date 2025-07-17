@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 18:40:10 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 19:44:06 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -389,14 +389,14 @@ void test_striteri()
 
 void test_split()
 {
-	char *arr[] = {"Banana", "Bananinha"};
+	char *arr[] = {"Banana", "Bananinha", 0};
 	char **splitted;
 	splitted = ft_split("Banana Bananinha", ' ');
-	TEST_ASSERT_EQUAL_STRING_ARRAY(arr, splitted, 2);
-	char *arr2[] = {"1", "2", "4", "3"};
+	TEST_ASSERT_EQUAL_STRING_ARRAY(arr, splitted, 3);
+	char *arr2[] = {"1", "2", "4", "3", 0};
 	free(splitted);
 	splitted = ft_split("    1       2     4    3   ", ' ');
-	TEST_ASSERT_EQUAL_STRING_ARRAY(arr2, splitted, 4);
+	TEST_ASSERT_EQUAL_STRING_ARRAY(arr2, splitted, 5);
 }
 
 void test_strdup()
