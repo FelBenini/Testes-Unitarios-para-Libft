@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 19:44:06 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:53:25 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -611,6 +611,7 @@ void test_strnstr()
 	TEST_ASSERT_EQUAL_STRING(strnstr("Hello world", "Hello", 11), ft_strnstr("Hello world", "Hello", 11));
 	TEST_ASSERT_EQUAL_STRING(strnstr("Hello world", "world", 11), ft_strnstr("Hello world", "world", 11));
 	TEST_ASSERT_EQUAL_PTR(strnstr("abcdef", "cdeZ", 6), ft_strnstr("abcdef", "cdeZ", 6));
+	TEST_ASSERT_EQUAL(strnstr("aaabcabcd", "cd", 8), ft_strnstr("aaabcabcd", "cd", 8));
 }
 
 void test_strrchr()
