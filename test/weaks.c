@@ -210,3 +210,9 @@ __attribute__((weak)) char	*ft_strtrim(char const *s1, char const *set)
 	(void)set;
 	return (0);
 }
+
+__attribute__((weak)) void ft_putchar_fd(char c, int fd)
+{
+	(void)c;
+	(void)fd;
+}

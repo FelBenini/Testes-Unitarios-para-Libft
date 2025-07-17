@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 12:40:58 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/17 14:20:14 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -577,8 +577,9 @@ void test_strmapi()
     }
     {
         char str[] = "123!@#";
-        ft_striteri(str, function_to_pass);
-        TEST_ASSERT_EQUAL_STRING("012345", str);
+        char *dup = ft_strmapi(str, function_to_pass_mapi);
+        TEST_ASSERT_EQUAL_STRING("012345", dup);
+		free(dup);
     }
 }
 
@@ -709,6 +710,8 @@ void test_toupper()
 	}
 }
 
+void test_putcharfd();
+
 int main(void)
 {
 	UNITY_BEGIN();
@@ -742,6 +745,7 @@ int main(void)
 	RUN_TEST(test_striteri);
 	RUN_TEST(test_strtrim);
 	RUN_TEST(test_strmapi);
+	RUN_TEST(test_putcharfd);
 	UNITY_END();
 	return 0;
 }
