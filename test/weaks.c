@@ -242,3 +242,9 @@ __attribute__((weak)) t_list *ft_lstnew(void *content)
 	(void)content;
 	return (res);
 }
+
+__attribute__((weak)) void ft_lstadd_front(t_list **lst, t_list *new)
+{
+	(void)lst;
+	(void)new;
+}
