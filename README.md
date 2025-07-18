@@ -20,6 +20,21 @@ cp -r /caminho/para/sua/libft ./src
 make test
 ```
 
+-- **Para rodar com os exercícios Bonus:**
+```bash
+make test-bonus
+```
+
+-- **Para checar os nomes dos arquivos:**
+```bash
+make file
+```
+
+-- **Para checar os nomes dos arquivos Bonus:**
+```bash
+make file-bonus
+```
+
 ## Testes Prontos
 
 - [x] Funções da Libc (parte 1)
