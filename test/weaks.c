@@ -234,3 +234,11 @@ __attribute__((weak)) void ft_putnbr_fd(int n, int fd)
 	(void)n;
 	(void)fd;
 }
+
+__attribute__((weak)) t_list *ft_lstnew(void *content)
+{
+	t_list *res = malloc(sizeof(t_list));
+	res->content = "Empty";
+	(void)content;
+	return (res);
+}

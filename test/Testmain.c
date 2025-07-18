@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 21:10:18 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/18 13:48:34 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -719,8 +719,9 @@ void test_putcharfd();
 void test_putstr_fd();
 void test_putendl_fd();
 void test_putnbr_fd();
+void test_lstnew();
 
-int main(void)
+int main(int argc, char *argv[])
 {
 	UNITY_BEGIN();
 	RUN_TEST(test_atoi);
@@ -758,6 +759,10 @@ int main(void)
 	RUN_TEST(test_putendl_fd);
 	RUN_TEST(test_putnbr_fd);
 	UNITY_END();
+	if (argc == 2 && strcmp("--with-bonus", argv[1]) == 0)
+	{
+		RUN_TEST(test_lstnew);
+	}
 	remove("./test/file.txt");
 	return 0;
 }

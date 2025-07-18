@@ -6,7 +6,7 @@
 #    By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 15:09:45 by fbenini-          #+#    #+#              #
-#    Updated: 2025/07/17 20:15:35 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/07/18 13:49:57 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDE_DIR = include
 
 # Files
 UNITY_SRC = $(UNITY_DIR)/unity.c
-TEST_SRC = test/Testmain.c test/weaks.c test/Testfd.c
+TEST_SRC = test/Testmain.c test/weaks.c test/Testfd.c test/Testbonus.c
 FN_SRC = test/file_name.c
 LIBFT_SRCS = $(wildcard $(SRC_DIR)/*.c)
 TEST_EXEC = $(BUILD_DIR)/test_runner
@@ -64,6 +64,18 @@ NC=\033[0m # No Color
 # Run tests
 test: $(BUILD_DIR) $(TEST_EXEC)
 		@./$(TEST_EXEC) > $(BUILD_DIR)/test_results.txt 2>&1
+	@echo "$(BLUE)-----------------------$(NC)"
+	@echo "$(GREEN)PASSED:$(NC)"
+	@echo "$(GREEN)$(PASSED)$(NC)"
+	@echo "$(BLUE)-----------------------$(NC)"
+	@echo "$(RED)FAILURES:$(NC)"
+	@echo "$(RED)$(FAIL)$(NC)"
+	@echo "$(BLUE)-----------------------$(NC)"
+	@echo "$(YELLOW)$(RESULTS)$(NC)"
+	@echo "$(BLUE)-----------------------$(NC)"
+
+test-bonus: $(BUILD_DIR) $(TEST_EXEC)
+		@./$(TEST_EXEC) --with-bonus > $(BUILD_DIR)/test_results.txt 2>&1
 	@echo "$(BLUE)-----------------------$(NC)"
 	@echo "$(GREEN)PASSED:$(NC)"
 	@echo "$(GREEN)$(PASSED)$(NC)"
