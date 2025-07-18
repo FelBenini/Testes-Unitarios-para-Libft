@@ -254,3 +254,9 @@ __attribute__((weak)) int ft_lstsize(t_list *lst)
 	(void)lst;
 	return (0);
 }
+
+__attribute__((weak)) t_list *ft_lstlast(t_list *lst)
+{
+	(void)lst;
+	return (ft_lstnew(0));
+}
