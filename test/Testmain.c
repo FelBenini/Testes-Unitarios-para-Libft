@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/17 20:57:30 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/17 21:10:18 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,12 +243,15 @@ void test_memcmp()
 	char s4[] = "abcde";
 	char s5[] = "abc\0ef";
 	char s6[] = "abc\0eg";
+	char s7[] = {-128, 0, 127, 0};
+	char s8[] = {0, 0, 127, 0};
 	TEST_ASSERT_EQUAL(memcmp(s1, s2, 6), ft_memcmp(s1, s2, 6));
 	TEST_ASSERT_EQUAL(memcmp(s1, s3, 6), ft_memcmp(s1, s3, 6));
 	TEST_ASSERT_EQUAL(memcmp(s5, s6, 6), ft_memcmp(s5, s6, 6));
 	TEST_ASSERT_EQUAL(memcmp(s1, s3, 3), ft_memcmp(s1, s3, 3));
 	TEST_ASSERT_EQUAL(memcmp(s1, s3, 0), ft_memcmp(s1, s3, 0));
 	TEST_ASSERT_EQUAL(memcmp(s1, s4, 5), ft_memcmp(s1, s4, 5));
+	TEST_ASSERT_EQUAL(memcmp(s7, s8, 1), ft_memcmp(s7, s8, 1));
 }
 
 void test_memcpy()
