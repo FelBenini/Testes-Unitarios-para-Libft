@@ -248,3 +248,9 @@ __attribute__((weak)) void ft_lstadd_front(t_list **lst, t_list *new)
 	(void)lst;
 	(void)new;
 }
+
+__attribute__((weak)) int ft_lstsize(t_list *lst)
+{
+	(void)lst;
+	return (0);
+}
