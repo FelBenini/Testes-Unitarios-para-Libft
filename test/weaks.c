@@ -260,3 +260,11 @@ __attribute__((weak)) t_list *ft_lstlast(t_list *lst)
 	(void)lst;
 	return (ft_lstnew(0));
 }
+
+__attribute__((weak)) void ft_lstadd_back(t_list **lst, t_list *new)
+{
+	new = malloc(sizeof(t_list));
+	new->content = "Empty";
+	new->next = NULL;
+	*lst = new;
+}

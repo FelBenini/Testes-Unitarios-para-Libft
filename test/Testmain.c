@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:18:47 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/18 18:02:22 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/19 15:12:50 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -723,6 +723,7 @@ void test_lstnew();
 void test_lstadd_front();
 void test_lstsize();
 void test_lstlast();
+void test_lstadd_back();
 
 int main(int argc, char *argv[])
 {
@@ -767,6 +768,7 @@ int main(int argc, char *argv[])
 		RUN_TEST(test_lstadd_front);
 		RUN_TEST(test_lstsize);
 		RUN_TEST(test_lstlast);
+		RUN_TEST(test_lstadd_back);
 	}
 	UNITY_END();
 	remove("./test/file.txt");

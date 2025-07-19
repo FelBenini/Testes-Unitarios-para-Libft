@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 13:29:25 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/18 18:06:46 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/19 15:28:07 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,25 @@ void test_lstlast()
         free(head);
         head = tmp;
     }
+}
+
+void test_lstadd_back()
+{
+	t_list *head = NULL;
+	t_list *node = ft_lstnew("Node1");
+	TEST_ASSERT_NULL(head);
+	ft_lstadd_back(&head, node);
+	TEST_ASSERT_EQUAL_STRING("Node1", head->content);
+	TEST_ASSERT_NULL(head->next);
+	t_list *node2 = ft_lstnew("Node2");
+	ft_lstadd_back(&head, node2);
+	TEST_ASSERT_EQUAL_STRING("Node2", head->next->content);
+	TEST_ASSERT_NULL(head->next->next);
+	t_list *node3 = ft_lstnew("Node3");
+	ft_lstadd_back(&node, node3);
+	TEST_ASSERT_EQUAL_STRING("Node3", head->next->next->content);
+	TEST_ASSERT_NULL(head->next->next->next);
+	free(node);
+	free(node2);
+	free(node3);
 }
