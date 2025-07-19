@@ -6,7 +6,7 @@
 /*   By: wsilveir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 13:55:34 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/17 20:49:07 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/07/19 14:13:38 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,15 @@ int	main(int argc, char *argv[])
 		"./src/ft_putnbr_fd.c"
 	};
 	char *bonusfiles[] = {
-		"./src/ft_lstnew.c",
-		"./src/ft_lstadd_front.c",
-		"./src/ft_lstsize.c",
-		"./src/ft_lstlast.c",
-		"./src/ft_lstadd_back.c",
-		"./src/ft_lstdelone.c",
-		"./src/ft_lstclear.c",
-		"./src/ft_lstiter.c",
-		"./src/ft_lstmap.c",
+		"./src/ft_lstnew_bonus.c",
+		"./src/ft_lstadd_front_bonus.c",
+		"./src/ft_lstsize_bonus.c",
+		"./src/ft_lstlast_bonus.c",
+		"./src/ft_lstadd_back_bonus.c",
+		"./src/ft_lstdelone_bonus.c",
+		"./src/ft_lstclear_bonus.c",
+		"./src/ft_lstiter_bonus.c",
+		"./src/ft_lstmap_bonus.c",
 		0
 	};
 
